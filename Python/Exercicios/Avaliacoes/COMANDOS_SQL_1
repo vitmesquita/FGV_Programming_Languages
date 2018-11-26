@@ -1,0 +1,37 @@
+Comandos SQL.2
+
+select query.conta +2 as resultado from (select account_id as conta, product_cd as produto from SQLExample1.account order by produto) as query;
+
+seleciona account_id e product_id de account, muda o nome desssas duas colunas e transforma o nome da tabela em query
+depois, chamo a coluna conta na query recem criada, somo 2 em cada linha e chamo a coluna de resultado
+
+
+
+select c.customerName, o.orderdate 
+from customers as c
+inner join orders as o
+on c.customerNumber = o.customerNumber
+
+junta data e nome pegando duas tabelas diferentes usando como chave o numero do cliente (customerName)
+inner = pega todas as datas para as quais tem nome
+
+
+
+select c.customerName as Nome,sum(p.amount)as Total from payments as p
+inner join customers as c
+on p.customerNumber=c.customerNumber
+group by p.customerNumber
+
+pega o nome do cliente usando como chave no join o numero e poe seu respectivo amount
+
+
+
+select c.customerName as Nome,max(p.amount)as Maximo,min(p.amount)as Minimo, avg(p.amount)as Media 
+from payments as p
+inner join customers as c
+on p.customerNumber=c.customerNumber
+group by p.customerNumber
+having Minimo>2000
+
+mesma coisa da de cima agr com coluna maximo,minimo,media so mostrando os minimos maiores que 2000
+usa-se o having inves de where

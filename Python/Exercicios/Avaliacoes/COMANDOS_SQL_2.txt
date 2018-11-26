@@ -1,0 +1,32 @@
+CREATE TABLE novatabela (nome VARCHAR(50),datadenascimento DATE,naturalidade CHAR(2))
+cria nova tabela
+
+
+SELECT    DISTINCT JobTitle FROM employees;
+mostra coluna sem repetição
+
+
+select COUNT(distinct JobTitle) from employees
+conta linhas da coluna sem repetiçao
+
+
+SELECT CONCAT(`contactFirstName`, ' ',`contactLastName` ) as `NovaColuna` FROM `customers`
+
+SELECT   DISTINCT JobTitle FROM employees
+concatena colunas
+
+
+select COUNT(customerName) from customers where customerName like 'M%'
+nomes que começam com M
+
+
+SELECT * from payments order by amount,paymentDate;
+ordenado por amount e dia do pagament
+
+
+SELECT customerNumber,sum(amount) from payments group by customerNumber;
+soma amount dos clientes e poe do nado de seu código
+
+
+SELECT max(e.soma) as resultado from (select jobTitle, count(jobTitle) as soma from employees group by jobTitle) as e;
+maximo de uma coluna de soma feita a partir de outra
